@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 import warnings
 
-import warnings
 
 warnings.filterwarnings('ignore')
 
@@ -26,7 +25,7 @@ ratings['num of ratings'] = pd.DataFrame(df.groupby('title').count()['rating'])
 
 
 moviemat = df.pivot_table(index="user_id", columns ="title", values="rating")
-moviemat.head()
+
 
 
 def predict_movies(movie_name):
@@ -42,8 +41,8 @@ def predict_movies(movie_name):
     
 
 
-predictions = predict_movies('Star Wars (1977)')
-response = predictions.head()
+predictions = predict_movies('Goofy Movie, A (1995)')
+response = predictions.head(n=20)
 response = list(response.index)
 for movie in response:
     print(movie)
